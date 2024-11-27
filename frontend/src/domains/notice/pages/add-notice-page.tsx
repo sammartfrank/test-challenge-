@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import { Box, Paper, SelectChangeEvent } from '@mui/material';
 import { AddCircleOutline } from '@mui/icons-material';
 import { useForm } from 'react-hook-form';
@@ -16,17 +16,17 @@ import { NoticeForm } from '../components';
 
 const initialState: NoticeFormProps = {
   title: '',
-  content: '',
   status: 0,
   recipientType: 'EV',
   recipientRole: 0,
-  firstField: ''
+  firstField: '',
+  description: ''
 };
 
 export const AddNotice = () => {
   const navigate = useNavigate();
   const [addNotice, { isLoading: addingNotice }] = useAddNoticeMutation();
-  const [selectedRoleId, setSelectedRoleId] = React.useState<number>(0);
+  const [selectedRoleId, setSelectedRoleId] = useState(0);
 
   const methods = useForm<NoticeFormProps>({
     defaultValues: initialState,

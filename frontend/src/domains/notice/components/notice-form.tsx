@@ -86,11 +86,11 @@ export const NoticeForm: React.FC<Props> = ({
         sx={{ marginTop: '20px' }}
       />
       <TextField
-        {...register('content')}
+        {...register('description')}
         error={Boolean(errors.description)}
         helperText={errors.description?.message}
         type='text'
-        label='Description'
+      label='Description'
         size='small'
         multiline
         minRows={3}
